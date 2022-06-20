@@ -3,28 +3,30 @@ package com.example.bermuda.entity;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 
-@Entity
-@Setter
+@Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Entity
+@Slf4j
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class LikedMusic {
+public class DiaryBetweenLocation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
-    private Long likedMusicId;
+    private Long diaryBetweenLocationId;
 
     @ManyToOne
-    @JoinColumn(name = "liked_user")
-    private User likedUser;
+    @JoinColumn(name = "diary_id")
+    private Diary diary;
 
     @ManyToOne
-    @JoinColumn(name = "liked_Music")
-    private Music likedMusic;
+    @JoinColumn(name = "location_id")
+    private Location location;
 }

@@ -32,7 +32,7 @@ public class User implements UserDetails {
         //유저가 사용할 아이디
     @NotNull
     @Id
-    @Column(name = "user_id", unique = true)
+    @Column(unique = true)
     private String userId;
     //비밀번호
     //@NotNull
@@ -86,16 +86,6 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     @JsonManagedReference
     private List<Music> myMusicList = new ArrayList<>();
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="diary_id")
-    @JsonIgnore
-    private List<Diary> likedDiaryList = new ArrayList<>();
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "music_id")
-    @JsonIgnore
-    private List<Music> likedMusicList = new ArrayList<>();
 
     public void updatePassword(String userPw){
         this.userPw = userPw;

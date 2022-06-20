@@ -1,10 +1,14 @@
 package com.example.bermuda.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Setter
@@ -17,6 +21,7 @@ public class Diary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long diaryId;
 
     @ManyToOne
@@ -26,9 +31,9 @@ public class Diary {
     private String title;
     private String mainText;
     private Boolean open;
+    private Integer likeNum;
 
-
-    @OneToMany()
-
-
+    @OneToMany(mappedBy = "diary")
+    @JsonManagedReference
+    private List<DiaryImage> diaryImageList = new ArrayList<>();
 }
