@@ -1,4 +1,4 @@
-package com.example.bermuda.entity;
+package com.example.bermuda.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
@@ -15,10 +15,11 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class Music {
+public class DiaryImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long musicId;
+    @Column(unique = true)
+    private Long diaryImageId;
     @NotEmpty
     private String original_file_name;
     @NotEmpty
@@ -29,10 +30,10 @@ public class Music {
     //프로필 이미지로 사용할 때 사용하는 속성
     @ManyToOne
     @JsonBackReference
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "diary_id")
+    private Diary diary;
 
-    public void updateMusic(String original_file_name, String stored_file_path, long file_size) {
+    public void updateDiaryImage(String original_file_name, String stored_file_path, long file_size){
         this.original_file_name = original_file_name;
         this.stored_file_path = stored_file_path;
         this.file_size = file_size;

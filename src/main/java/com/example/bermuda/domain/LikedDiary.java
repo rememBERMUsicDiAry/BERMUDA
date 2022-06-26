@@ -1,4 +1,4 @@
-package com.example.bermuda.entity;
+package com.example.bermuda.domain;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -13,18 +13,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class LikedMusic {
+public class LikedDiary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
-    private Long likedMusicId;
+    private Long likedDiaryId;
 
     @ManyToOne
     @JoinColumn(name = "liked_user")
     private User likedUser;
 
     @ManyToOne
-    @JoinColumn(name = "liked_Music")
-    private Music likedMusic;
+    @JoinColumn(name = "liked_diary")
+    private Diary likedDiary;
 }

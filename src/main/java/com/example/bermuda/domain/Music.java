@@ -1,5 +1,9 @@
-package com.example.bermuda.entity;
+package com.example.bermuda.domain;
 
+import com.example.bermuda.domain.musicType.AtmosphereCode;
+import com.example.bermuda.domain.musicType.AtmosphereDrum;
+import com.example.bermuda.domain.musicType.BPM;
+import com.example.bermuda.domain.musicType.Background;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -15,11 +19,16 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Builder
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class DiaryImage {
+public class Music {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
-    private Long diaryImageId;
+    private Long musicId;
+
+    private AtmosphereDrum atmosphereDrum;
+    private AtmosphereCode atmosphereCode;
+    private Background background;
+    private BPM bpm;
+
     @NotEmpty
     private String original_file_name;
     @NotEmpty
@@ -30,10 +39,10 @@ public class DiaryImage {
     //프로필 이미지로 사용할 때 사용하는 속성
     @ManyToOne
     @JsonBackReference
-    @JoinColumn(name = "diary_id")
-    private Diary diary;
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public void updateDiaryImage(String original_file_name, String stored_file_path, long file_size){
+    public void updateMusic(String original_file_name, String stored_file_path, long file_size) {
         this.original_file_name = original_file_name;
         this.stored_file_path = stored_file_path;
         this.file_size = file_size;

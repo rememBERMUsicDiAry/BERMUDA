@@ -1,4 +1,4 @@
-package com.example.bermuda.entity;
+package com.example.bermuda.domain;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
