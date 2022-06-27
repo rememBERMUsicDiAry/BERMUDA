@@ -1,4 +1,4 @@
-package com.example.bermuda.Domain;
+package com.example.bermuda.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package com.example.bermuda.SwaggerConfig;
+package com.example.bermuda.swagger_config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

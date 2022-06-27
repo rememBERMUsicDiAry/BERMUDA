@@ -1,9 +1,9 @@
-package com.example.bermuda.Domain;
+package com.example.bermuda.domain;
 
-import com.example.bermuda.Domain.MusicType.AtmosphereCode;
-import com.example.bermuda.Domain.MusicType.AtmosphereDrum;
-import com.example.bermuda.Domain.MusicType.BPM;
-import com.example.bermuda.Domain.MusicType.Background;
+import com.example.bermuda.domain.music_type.AtmosphereCode;
+import com.example.bermuda.domain.music_type.AtmosphereDrum;
+import com.example.bermuda.domain.music_type.BPM;
+import com.example.bermuda.domain.music_type.Background;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

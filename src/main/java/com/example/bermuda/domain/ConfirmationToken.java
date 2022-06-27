@@ -1,4 +1,4 @@
-package com.example.bermuda.Domain;
+package com.example.bermuda.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
